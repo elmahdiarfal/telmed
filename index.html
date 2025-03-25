@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cabinet Smart-ICT | Telemedicine Platform</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Cabinet Smart-ICT</h1>
+                    <div class="pulse-icon">
+                        <span class="pulse-circle"></span>
+                        <span class="pulse-circle"></span>
+                        <span class="pulse-circle"></span>
+                    </div>
+                </div>
+                <div class="telemedicine-badge">
+                    <span>Telemedicine</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Video Consultation</h2>
+                    <div id="user-name" class="user-id"></div>
+                </div>
+                <div class="card-body">
+                    <div class="role-indicator">Your role: <span id="user-role">Connecting...</span></div>
+                    <div class="controls mb-4">
+                        <button id="call" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            Start Call
+                        </button>
+                        <button id="share-screen" class="btn btn-primary">Partager l'écran</button>
+                        <button id="hangup" class="btn btn-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-x-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm9.261 1.135a.5.5 0 0 1 .708 0L13 2.793l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3.5l1.147 1.146a.5.5 0 0 1-.708.708L13 4.207l-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3.5l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                            End Call
+                        </button>
+                    </div>
+                    <div id="answer" class="answer-status"></div>
+                    <div id="videos" class="video-container">
+                        <div id="video-wrapper" class="video-box">
+                            <div id="waiting" class="waiting-indicator">Waiting for answer...</div>
+                            <div id="local-label" class="video-label">You</div>
+                            <video class="video-player" id="local-video" autoplay playsinline controls></video>
+                        </div>
+                        <div class="video-box">
+                            <div id="remote-label" class="video-label">Remote</div>
+                            <video class="video-player" id="remote-video" autoplay playsinline controls></video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="developer">
+                    <p>Developed by: <span>Laoulidi Youssef</span>
+                        <span>Arfal El Mahdi</span>
+                        <span>Abdo Adnane</span>
+                        <span>Bayou Omar</span>
+                        <span>Kamba Junior</span></p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Cabinet Smart-ICT. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src='scripts.js'></script>
+    <script src='socketListeners.js'></script>
+    <script src='role-manager.js'></script>
+</body>
+</html>
